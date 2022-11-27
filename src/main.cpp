@@ -13,7 +13,7 @@ auto main(void) -> int {
   auto fn = [&](int id) mutable {
     for(auto i = 0; i < 10; ++i) {
       {
-        std::lock_guard<Mutex<int>> lock(m);
+        std::scoped_lock lock(m);
         m.update([&](auto t) {
           return t + 1 + (id % 2 == 0);
         });
