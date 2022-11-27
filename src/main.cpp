@@ -8,7 +8,7 @@
 using namespace std::chrono_literals; //1ms
 
 auto main(void) -> int {
-  Mutex<int> m = Mutex<int>(0);
+  auto m = Mutex<int>(0);
   
   auto fn = [&](int id) mutable {
     for(auto i = 0; i < 10; ++i) {
